@@ -31,7 +31,7 @@ const PlayingCard: React.FC<PlayingCardProps> = ({
       >
         <div className="absolute inset-2 border border-zinc-600/50 rounded-lg flex items-center justify-center">
           <div className="w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-zinc-700 to-zinc-800 opacity-50" />
-          <div className="absolute text-zinc-600 font-bold text-2xl opacity-20 select-none">TINA</div>
+          <div className="absolute text-zinc-600 font-bold text-2xl opacity-20 select-none">KARL</div>
         </div>
       </motion.div>
     );
@@ -43,7 +43,7 @@ const PlayingCard: React.FC<PlayingCardProps> = ({
       whileTap={isPlayable ? { scale: 0.95 } : {}}
       onClick={isPlayable ? onClick : undefined}
       className={`relative w-20 h-28 sm:w-28 sm:h-40 rounded-xl bg-white border-2 ${
-        isPlayable ? 'border-emerald-500 cursor-pointer ring-4 ring-emerald-500/20' : 'border-zinc-200'
+        isPlayable ? 'border-amber-500 cursor-pointer ring-4 ring-amber-500/20' : 'border-zinc-200'
       } flex flex-col p-2 sm:p-3 card-shadow select-none ${className}`}
       style={style}
     >

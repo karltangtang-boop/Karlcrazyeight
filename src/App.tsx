@@ -22,7 +22,7 @@ export default function App() {
     status: 'waiting',
     winner: null,
     activeSuit: null,
-    lastAction: '欢迎来到 Tina 疯狂 8 点！'
+    lastAction: '欢迎来到 Karl 疯狂 8 点！'
   });
 
   const [showSuitSelector, setShowSuitSelector] = useState(false);
@@ -219,14 +219,14 @@ export default function App() {
       <header className="w-full max-w-5xl flex justify-between items-center z-30 bg-black/20 backdrop-blur-md p-4 rounded-2xl border border-white/10 shadow-2xl">
         <div className="flex flex-col">
           <h1 className="text-2xl sm:text-4xl font-black font-display tracking-tighter text-white drop-shadow-lg">
-            TINA <span className="text-emerald-400">8S</span>
+            KARL <span className="text-amber-400">8S</span>
           </h1>
-          <p className="text-emerald-200/70 text-[10px] sm:text-xs font-bold uppercase tracking-widest">{gameState.lastAction}</p>
+          <p className="text-amber-200/70 text-[10px] sm:text-xs font-bold uppercase tracking-widest">{gameState.lastAction}</p>
         </div>
         <div className="flex gap-2">
           <button 
             onClick={startNewGame}
-            className="flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-black transition-all text-xs sm:text-sm shadow-[0_0_20px_rgba(16,185,129,0.4)] active:scale-90 animate-pulse border-b-4 border-emerald-700"
+            className="flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-zinc-950 font-black transition-all text-xs sm:text-sm shadow-[0_0_20px_rgba(245,158,11,0.4)] active:scale-90 animate-pulse border-b-4 border-amber-700"
           >
             <RotateCcw size={18} />
             <span>立即发牌</span>
@@ -263,7 +263,7 @@ export default function App() {
         <div className="flex-1 flex items-center justify-center gap-8 sm:gap-24 my-6">
           {/* Draw Pile */}
           <div className="relative group">
-            <div className="absolute -inset-4 bg-emerald-400/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="absolute -inset-4 bg-amber-400/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
             <button 
               onClick={() => gameState.currentTurn === 'player' && gameState.status === 'playing' && drawCard(true)}
               disabled={gameState.currentTurn !== 'player' || gameState.status !== 'playing'}
@@ -274,7 +274,7 @@ export default function App() {
                   <div className="absolute top-1.5 left-1.5 w-24 h-32 sm:w-32 sm:h-44 rounded-2xl bg-zinc-800 border-2 border-zinc-700 translate-x-1.5 translate-y-1.5 shadow-2xl" />
                   <PlayingCard card={gameState.drawPile[0]} isFaceUp={false} className="w-24 h-32 sm:w-32 sm:h-44" />
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="bg-zinc-950/90 text-emerald-400 text-[10px] sm:text-xs font-black px-3 py-1.5 rounded-lg border-2 border-emerald-500/30 shadow-2xl uppercase tracking-widest">
+                    <span className="bg-zinc-950/90 text-amber-400 text-[10px] sm:text-xs font-black px-3 py-1.5 rounded-lg border-2 border-amber-500/30 shadow-2xl uppercase tracking-widest">
                       摸牌 ({gameState.drawPile.length})
                     </span>
                   </div>
@@ -310,9 +310,9 @@ export default function App() {
         </div>
 
         {/* Player Hand Area */}
-        <div className="relative min-h-[240px] sm:min-h-[320px] w-full flex flex-col items-center justify-center bg-emerald-950/40 rounded-[3rem] border-4 border-emerald-500/30 p-6 sm:p-10 shadow-[inset_0_0_50px_rgba(0,0,0,0.5)] backdrop-blur-md">
-          <div className="absolute top-4 left-6 text-[10px] font-black text-emerald-500/30 uppercase tracking-[0.5em] select-none">
-            Player Hand Zone
+        <div className="relative min-h-[240px] sm:min-h-[320px] w-full flex flex-col items-center justify-center bg-rose-950/40 rounded-[3rem] border-4 border-amber-500/30 p-6 sm:p-10 shadow-[inset_0_0_50px_rgba(0,0,0,0.5)] backdrop-blur-md">
+          <div className="absolute top-4 left-6 text-[10px] font-black text-amber-500/30 uppercase tracking-[0.5em] select-none">
+            Karl Hand Zone
           </div>
           
           {/* Player Status & Draw Button Hint */}
@@ -336,12 +336,12 @@ export default function App() {
               <div className="flex items-center gap-4">
                 <div className={`px-6 py-2 rounded-full border-2 text-xs font-black uppercase tracking-[0.3em] transition-all ${
                   gameState.currentTurn === 'player' 
-                    ? 'bg-emerald-500 text-white border-emerald-300 shadow-[0_0_30px_rgba(16,185,129,0.6)]' 
+                    ? 'bg-amber-500 text-white border-amber-300 shadow-[0_0_30px_rgba(245,158,11,0.6)]' 
                     : 'bg-zinc-950/90 text-zinc-600 border-zinc-800'
                 }`}>
                   {gameState.currentTurn === 'player' ? 'YOUR TURN' : 'AI THINKING'}
                 </div>
-                <div className="bg-zinc-950/90 px-5 py-2 rounded-full border-2 border-zinc-800 text-xs font-black text-emerald-400 shadow-inner tracking-widest">
+                <div className="bg-zinc-950/90 px-5 py-2 rounded-full border-2 border-zinc-800 text-xs font-black text-amber-400 shadow-inner tracking-widest">
                   CARDS: {gameState.playerHand.length}
                 </div>
               </div>
@@ -349,35 +349,40 @@ export default function App() {
           )}
 
           {gameState.playerHand.length > 0 ? (
-            <div className="flex flex-wrap justify-center gap-3 sm:gap-6 w-full max-w-6xl max-h-[380px] overflow-y-auto p-4 no-scrollbar">
-              {gameState.playerHand.map((card) => (
-                <PlayingCard 
-                  key={card.id}
-                  card={card} 
-                  isPlayable={gameState.currentTurn === 'player' && gameState.status === 'playing' && isValidMove(card, topCard, gameState.activeSuit)}
-                  onClick={() => handlePlayerCardClick(card)}
-                  className="hover:z-50 transition-all shadow-2xl scale-110 sm:scale-125 mx-2 my-2"
-                />
-              ))}
+            <div className="flex justify-center items-end w-full max-w-6xl px-4 sm:px-10 py-8 overflow-x-auto no-scrollbar min-h-[200px]">
+              <div className="flex -space-x-12 sm:-space-x-16 hover:space-x-2 transition-all duration-300 pb-4">
+                {gameState.playerHand.map((card, index) => (
+                  <PlayingCard 
+                    key={card.id}
+                    card={card} 
+                    isPlayable={gameState.currentTurn === 'player' && gameState.status === 'playing' && isValidMove(card, topCard, gameState.activeSuit)}
+                    onClick={() => handlePlayerCardClick(card)}
+                    className="shadow-2xl hover:z-50 transition-transform"
+                    style={{ 
+                      zIndex: index,
+                    }}
+                  />
+                ))}
+              </div>
             </div>
           ) : gameState.status === 'playing' && !gameState.winner ? (
             <div className="flex flex-col items-center gap-10 py-12">
               <div className="flex flex-col items-center gap-6">
-                <div className="w-24 h-24 rounded-full border-8 border-emerald-500 border-t-transparent animate-spin shadow-2xl" />
-                <p className="text-emerald-400 text-2xl font-black tracking-[0.5em] animate-pulse uppercase">
+                <div className="w-24 h-24 rounded-full border-8 border-amber-500 border-t-transparent animate-spin shadow-2xl" />
+                <p className="text-amber-400 text-2xl font-black tracking-[0.5em] animate-pulse uppercase">
                   Dealing...
                 </p>
               </div>
               <button 
                 onClick={startNewGame}
-                className="px-16 py-8 bg-emerald-500 text-zinc-950 rounded-[2rem] font-black text-3xl hover:bg-emerald-400 transition-all shadow-[0_30px_80px_rgba(16,185,129,0.5)] active:scale-90 border-b-[12px] border-emerald-700 animate-bounce uppercase tracking-widest"
+                className="px-16 py-8 bg-amber-500 text-zinc-950 rounded-[2rem] font-black text-3xl hover:bg-amber-400 transition-all shadow-[0_30px_80px_rgba(245,158,11,0.5)] active:scale-90 border-b-[12px] border-amber-700 animate-bounce uppercase tracking-widest"
               >
                 Deal Now
               </button>
             </div>
           ) : (
-            <div className="text-emerald-500/5 font-black text-6xl sm:text-9xl select-none uppercase tracking-[0.8em] opacity-10">
-              TINA
+            <div className="text-amber-500/5 font-black text-6xl sm:text-9xl select-none uppercase tracking-[0.8em] opacity-10">
+              KARL
             </div>
           )}
         </div>
@@ -398,30 +403,30 @@ export default function App() {
               animate={{ scale: 1, y: 0 }}
               className="max-w-md w-full bg-zinc-900 border border-zinc-800 rounded-3xl p-8 text-center shadow-2xl ring-1 ring-white/10"
             >
-              <div className="w-24 h-24 bg-emerald-500/20 rounded-3xl flex items-center justify-center mx-auto mb-8 border border-emerald-500/30 shadow-[0_0_30px_rgba(16,185,129,0.2)]">
-                <Play className="text-emerald-400 fill-emerald-400" size={48} />
+              <div className="w-24 h-24 bg-amber-500/20 rounded-3xl flex items-center justify-center mx-auto mb-8 border border-amber-500/30 shadow-[0_0_30px_rgba(245,158,11,0.2)]">
+                <Play className="text-amber-400 fill-amber-400" size={48} />
               </div>
               <h2 className="text-5xl font-black font-display text-white mb-4 tracking-tight">疯狂 8 点</h2>
               <p className="text-zinc-400 mb-10 text-lg">准备好挑战智能 AI 了吗？</p>
               
               <div className="space-y-4 mb-10 text-left bg-zinc-950/50 p-6 rounded-2xl border border-zinc-800">
                 <div className="flex items-start gap-4 text-sm">
-                  <div className="mt-1 p-1 bg-emerald-500/20 rounded-full text-emerald-400"><ChevronRight size={14} /></div>
-                  <p className="text-zinc-300">初始每人发 <span className="text-emerald-400 font-bold">8 张牌</span></p>
+                  <div className="mt-1 p-1 bg-amber-500/20 rounded-full text-amber-400"><ChevronRight size={14} /></div>
+                  <p className="text-zinc-300">初始每人发 <span className="text-amber-400 font-bold">8 张牌</span></p>
                 </div>
                 <div className="flex items-start gap-4 text-sm">
-                  <div className="mt-1 p-1 bg-emerald-500/20 rounded-full text-emerald-400"><ChevronRight size={14} /></div>
+                  <div className="mt-1 p-1 bg-amber-500/20 rounded-full text-amber-400"><ChevronRight size={14} /></div>
                   <p className="text-zinc-300">匹配 <span className="text-white font-bold">花色</span> 或 <span className="text-white font-bold">点数</span> 出牌</p>
                 </div>
                 <div className="flex items-start gap-4 text-sm">
-                  <div className="mt-1 p-1 bg-emerald-500/20 rounded-full text-emerald-400"><ChevronRight size={14} /></div>
+                  <div className="mt-1 p-1 bg-amber-500/20 rounded-full text-amber-400"><ChevronRight size={14} /></div>
                   <p className="text-zinc-300"><span className="text-amber-400 font-bold">数字 8</span> 是万能牌，可改花色</p>
                 </div>
               </div>
 
               <button 
                 onClick={startNewGame}
-                className="w-full py-5 bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-black text-xl rounded-2xl transition-all shadow-[0_10px_40px_rgba(16,185,129,0.3)] flex items-center justify-center gap-3 group active:scale-95"
+                className="w-full py-5 bg-amber-500 hover:bg-amber-400 text-zinc-950 font-black text-xl rounded-2xl transition-all shadow-[0_10px_40px_rgba(245,158,11,0.3)] flex items-center justify-center gap-3 group active:scale-95"
               >
                 立即发牌
                 <ChevronRight size={24} className="group-hover:translate-x-2 transition-transform" />
@@ -481,10 +486,10 @@ export default function App() {
               className="bg-zinc-900 border border-zinc-800 rounded-3xl p-10 text-center shadow-2xl max-w-md w-full relative overflow-hidden"
             >
               {/* Decorative elements */}
-              <div className="absolute top-0 left-0 w-full h-2 bg-emerald-500" />
+              <div className="absolute top-0 left-0 w-full h-2 bg-amber-500" />
               
               <div className={`w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 ${
-                gameState.winner === 'player' ? 'bg-emerald-500/20 text-emerald-500' : 'bg-red-500/20 text-red-500'
+                gameState.winner === 'player' ? 'bg-amber-500/20 text-amber-500' : 'bg-red-500/20 text-red-500'
               }`}>
                 {gameState.winner === 'player' ? <Trophy size={48} /> : <RotateCcw size={48} />}
               </div>
@@ -506,7 +511,7 @@ export default function App() {
       </AnimatePresence>
 
       {/* Footer / Status */}
-      <footer className="w-full max-w-5xl flex justify-between items-center z-10 text-emerald-200/40 text-[10px] font-bold uppercase tracking-[0.2em] mt-4">
+      <footer className="w-full max-w-5xl flex justify-between items-center z-10 text-amber-200/40 text-[10px] font-bold uppercase tracking-[0.2em] mt-4">
         <div className="flex items-center gap-4">
           <span>牌堆: {gameState.drawPile.length}</span>
           <span>弃牌: {gameState.discardPile.length}</span>

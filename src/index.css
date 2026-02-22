@@ -6,8 +6,8 @@
   --font-display: "Outfit", sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
 
-  --color-felt: #076324;
-  --color-felt-dark: #054d1c;
+  --color-felt: #8b0000;
+  --color-felt-dark: #5a0000;
 }
 
 @layer base {
